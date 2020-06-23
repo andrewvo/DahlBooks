@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using AutoFixture;
+using DahlBooks.Helpers;
 using DahlBooks.Service;
 using FluentAssertions;
 using Moq.AutoMock;
@@ -21,51 +22,20 @@ namespace DahlBooks.Tests.Service
         }
 
         [Fact]
-        public void WhenGetTwoDifferentBooks()
+        public void WhenGet()
         {
             //Arrange
-            var subject = new PriceCalculatorService();
-            var books = new[] {1, 2};
+            var subject = Mocker.CreateInstance<PriceCalculatorService>();
+            var numberOfOccurances = AutoFixture.Create<Dictionary<int,int>>();
+            var books = AutoFixture.Create<int[]>();
+            var discountedPrice = AutoFixture.Create<decimal>();
+            Mocker.GetMock<IGroupNumbersByOccurences>().Setup(gnbo => gnbo.Group(books)).Returns(numberOfOccurances);
+            Mocker.GetMock<ICalculateDiscountedPrice>().Setup(cdp => cdp.Calculate(numberOfOccurances))
+                .Returns(discountedPrice);
             //Act
             var result = subject.GetPrice(books);
             //Assert
-            result.Should().Be(15.2m);
-        }
-
-        [Fact]
-        public void WhenGetThreeDifferentBooks()
-        {
-            //Arrange
-            var subject = new PriceCalculatorService();
-            var books = new[] {1, 2, 3};
-            //Act
-            var result = subject.GetPrice(books);
-            //Assert
-            result.Should().Be(21.6m);
-        }
-
-        [Fact]
-        public void WhenGetFourDifferentBooks()
-        {
-            //Arrange
-            var subject = new PriceCalculatorService();
-            var books = new[] {1, 2, 3, 4};
-            //Act
-            var result = subject.GetPrice(books);
-            //Assert
-            result.Should().Be(25.6m);
-        }
-
-        [Fact]
-        public void WhenGetFiveDifferentBooks()
-        {
-            //Arrange
-            var subject = new PriceCalculatorService();
-            var books = new[] {1, 2, 3, 4, 5};
-            //Act
-            var result = subject.GetPrice(books);
-            //Assert
-            result.Should().Be(30);
+            result.Should().Be(discountedPrice);
         }
     }
 }
