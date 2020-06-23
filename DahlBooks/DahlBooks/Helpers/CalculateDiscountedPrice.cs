@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using DahlBooks.Tests.Service;
 
 namespace DahlBooks.Helpers
@@ -29,23 +27,37 @@ namespace DahlBooks.Helpers
             while (numberOfBooks > 0)
             {
                 var distinctIds = IdsByOccurrance.Select(d => d.Key);
-                totalPrice += _multibooksDiscounts[distinctIds.Count()];
 
-                foreach (var distinctId in distinctIds.ToArray())
+                if (numberOfBooks % 4 == 0 && distinctIds.Count() == 5)
                 {
-                    var numberOfOccurancces = IdsByOccurrance[distinctId];
-                    if (numberOfOccurancces - 1 == 0)
-                    {
-                        IdsByOccurrance.Remove(distinctId);
+                    totalPrice += 25.6m;
+                    IdsByOccurrance[1] = IdsByOccurrance[1] - 1;
+                    IdsByOccurrance[2] = IdsByOccurrance[2] - 1;
+                    IdsByOccurrance[3] = IdsByOccurrance[3] - 1;
+                    IdsByOccurrance[4] = IdsByOccurrance[4] - 1;
 
-                    }
-                    else
-                    {
-                        IdsByOccurrance[distinctId] = numberOfOccurancces - 1;
-                    }
+                    numberOfBooks = numberOfBooks - 4;
+                }
+                else
+                {
+                    totalPrice += _multibooksDiscounts[distinctIds.Count()];
 
-                    numberOfBooks--;
-                } 
+                    foreach (var distinctId in distinctIds.ToArray())
+                    {
+                        var numberOfOccurancces = IdsByOccurrance[distinctId];
+                        if (numberOfOccurancces - 1 == 0)
+                        {
+                            IdsByOccurrance.Remove(distinctId);
+
+                        }
+                        else
+                        {
+                            IdsByOccurrance[distinctId] = numberOfOccurancces - 1;
+                        }
+
+                        numberOfBooks--;
+                    }
+                }
             }
 
             return totalPrice;

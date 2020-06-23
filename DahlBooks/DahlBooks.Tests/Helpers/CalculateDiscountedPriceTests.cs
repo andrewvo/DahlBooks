@@ -110,7 +110,7 @@ namespace DahlBooks.Tests.Helpers
             //Act
             var result = subject.Calculate(bookIdAndAmountOfOccurrances);
             //Assert
-            result.Should().Be(51.6m);
+            result.Should().Be(51.2m);
         }
     }
 }
