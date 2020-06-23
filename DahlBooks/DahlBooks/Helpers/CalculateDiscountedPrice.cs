@@ -16,7 +16,8 @@ namespace DahlBooks.Helpers
             {
                 { 1, 8.00m },
                 { 2, 15.2m },
-                { 3, 21.6m }
+                { 3, 21.6m },
+                { 4, 25.6m }
             };
         }
         public decimal Calculate(Dictionary<int, int> IdsByOccurrance)
