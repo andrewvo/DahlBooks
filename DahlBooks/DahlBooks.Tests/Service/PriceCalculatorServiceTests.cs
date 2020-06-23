@@ -23,11 +23,23 @@ namespace DahlBooks.Tests.Service
         {
             //Arrange
             var subject = new PriceCalculatorService();
-            var books = new[] {1,2,1};
+            var books = new[] { 1, 2 };
             //Act
             var result = subject.GetPrice(books);
             //Assert
-            result.Should().Be(23.2m);
+            result.Should().Be(15.2m);
+        }
+
+        [Fact]
+        public void WhenGetThreeDifferentBooks()
+        {
+            //Arrange
+            var subject = new PriceCalculatorService();
+            var books = new[] { 1, 2, 3 };
+            //Act
+            var result = subject.GetPrice(books);
+            //Assert
+            result.Should().Be(21.6m);
         }
     }
 }
