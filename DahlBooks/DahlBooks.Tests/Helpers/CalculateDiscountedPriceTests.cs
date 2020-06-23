@@ -21,7 +21,7 @@ namespace DahlBooks.Tests.Helpers
         }
 
         [Fact]
-        public void WhenCalculate()
+        public void WhenCalculateFor5PercentDiscount()
         {
             //Arrange
             var subject = Mocker.CreateInstance<CalculateDiscountedPrice>();
@@ -33,5 +33,21 @@ namespace DahlBooks.Tests.Helpers
             //Assert
             result.Should().Be(15.2m);
         }
+
+        [Fact]
+        public void WhenCalculateFor10PercentDiscount()
+        {
+            //Arrange
+            var subject = Mocker.CreateInstance<CalculateDiscountedPrice>();
+            var bookIdAndAmountOfOccurrances = new Dictionary<int, int>();
+            bookIdAndAmountOfOccurrances.Add(1, 1);
+            bookIdAndAmountOfOccurrances.Add(2, 1);
+            bookIdAndAmountOfOccurrances.Add(3, 1);
+            //Act
+            var result = subject.Calculate(bookIdAndAmountOfOccurrances);
+            //Assert
+            result.Should().Be(21.6m);
+        }
+
     }
 }
