@@ -95,5 +95,22 @@ namespace DahlBooks.Tests.Helpers
             //Assert
             result.Should().Be(30m);
         }
+
+        [Fact]
+        public void WhenCalculateUsingExampleOnKata()
+        {
+            //Arrange
+            var subject = Mocker.CreateInstance<CalculateDiscountedPrice>();
+            var bookIdAndAmountOfOccurrances = new Dictionary<int, int>();
+            bookIdAndAmountOfOccurrances.Add(1, 2);
+            bookIdAndAmountOfOccurrances.Add(2, 2);
+            bookIdAndAmountOfOccurrances.Add(3, 2);
+            bookIdAndAmountOfOccurrances.Add(4, 1);
+            bookIdAndAmountOfOccurrances.Add(5, 1);
+            //Act
+            var result = subject.Calculate(bookIdAndAmountOfOccurrances);
+            //Assert
+            result.Should().Be(51.6m);
+        }
     }
 }
