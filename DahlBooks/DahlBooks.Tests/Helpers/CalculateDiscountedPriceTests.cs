@@ -49,5 +49,18 @@ namespace DahlBooks.Tests.Helpers
             result.Should().Be(21.6m);
         }
 
+        [Fact]
+        public void WhenCalculateFor5PercentButWithThreeBooks()
+        {
+            //Arrange
+            var subject = Mocker.CreateInstance<CalculateDiscountedPrice>();
+            var bookIdAndAmountOfOccurrances = new Dictionary<int, int>();
+            bookIdAndAmountOfOccurrances.Add(1, 2);
+            bookIdAndAmountOfOccurrances.Add(2, 1);
+            //Act
+            var result = subject.Calculate(bookIdAndAmountOfOccurrances);
+            //Assert
+            result.Should().Be(23.2m);
+        }
     }
 }
