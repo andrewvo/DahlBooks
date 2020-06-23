@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DahlBooks.Tests", "DahlBooks.Tests\DahlBooks.Tests.csproj", "{F65CC041-0295-4D5C-AF3A-4EE28446E6E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DahlBooks", "DahlBooks\DahlBooks.csproj", "{AA531B0F-AC2F-4EE2-BD34-06D632FFC829}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F65CC041-0295-4D5C-AF3A-4EE28446E6E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F65CC041-0295-4D5C-AF3A-4EE28446E6E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F65CC041-0295-4D5C-AF3A-4EE28446E6E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F65CC041-0295-4D5C-AF3A-4EE28446E6E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA531B0F-AC2F-4EE2-BD34-06D632FFC829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA531B0F-AC2F-4EE2-BD34-06D632FFC829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA531B0F-AC2F-4EE2-BD34-06D632FFC829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA531B0F-AC2F-4EE2-BD34-06D632FFC829}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C799790-F1E8-4048-B640-89E8CEB93A72}
+	EndGlobalSection
+EndGlobal
