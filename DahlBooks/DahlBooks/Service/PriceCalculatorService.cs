@@ -7,18 +7,18 @@ namespace DahlBooks.Service
 {
     public class PriceCalculatorService : IPriceCalculatorService
     {
-        private readonly IGroupNumbersByOccurences _groupNumbersByOccurences;
+        private readonly IGroupNumbersByOccurrences _groupNumbersByOccurrences;
         private readonly ICalculateDiscountedPrice _calculateDiscountedPrice;
 
-        public PriceCalculatorService(IGroupNumbersByOccurences groupNumbersByOccurences, ICalculateDiscountedPrice calculateDiscountedPrice)
+        public PriceCalculatorService(IGroupNumbersByOccurrences groupNumbersByOccurrences, ICalculateDiscountedPrice calculateDiscountedPrice)
         {
-            _groupNumbersByOccurences = groupNumbersByOccurences;
+            _groupNumbersByOccurrences = groupNumbersByOccurrences;
             _calculateDiscountedPrice = calculateDiscountedPrice;
         }
 
         public decimal GetPrice(int[] books)
         {
-            return _calculateDiscountedPrice.Calculate(_groupNumbersByOccurences.Group(books));
+            return _calculateDiscountedPrice.Calculate(_groupNumbersByOccurrences.Group(books));
         }
     }
 }

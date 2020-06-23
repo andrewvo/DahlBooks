@@ -2,7 +2,7 @@
 
 namespace DahlBooks.Helpers
 {
-    public interface IGroupNumbersByOccurences
+    public interface IGroupNumbersByOccurrences
     {
         Dictionary<int, int> Group(int[] books);
     }

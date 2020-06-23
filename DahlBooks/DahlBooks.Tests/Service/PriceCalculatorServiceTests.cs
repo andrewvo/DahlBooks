@@ -29,7 +29,7 @@ namespace DahlBooks.Tests.Service
             var numberOfOccurances = AutoFixture.Create<Dictionary<int,int>>();
             var books = AutoFixture.Create<int[]>();
             var discountedPrice = AutoFixture.Create<decimal>();
-            Mocker.GetMock<IGroupNumbersByOccurences>().Setup(gnbo => gnbo.Group(books)).Returns(numberOfOccurances);
+            Mocker.GetMock<IGroupNumbersByOccurrences>().Setup(gnbo => gnbo.Group(books)).Returns(numberOfOccurances);
             Mocker.GetMock<ICalculateDiscountedPrice>().Setup(cdp => cdp.Calculate(numberOfOccurances))
                 .Returns(discountedPrice);
             //Act
