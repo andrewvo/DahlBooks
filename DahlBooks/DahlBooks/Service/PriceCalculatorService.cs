@@ -11,6 +11,8 @@ namespace DahlBooks.Service
             var multiBookDiscounts = new Dictionary<int, decimal>();
             multiBookDiscounts.Add(2, 15.2m);
             multiBookDiscounts.Add(3, 21.6m);
+            multiBookDiscounts.Add(4, 25.6m);
+            multiBookDiscounts.Add(5, 30);
             var distinctBooks = books.Distinct();
             return multiBookDiscounts[distinctBooks.Count()];
         }

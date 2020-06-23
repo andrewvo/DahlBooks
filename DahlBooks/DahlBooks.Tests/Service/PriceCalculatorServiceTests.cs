@@ -13,17 +13,19 @@ namespace DahlBooks.Tests.Service
     {
         public Fixture AutoFixture { get; set; }
         public AutoMocker Mocker { get; set; }
+
         public PriceCalculatorServiceTests()
         {
             AutoFixture = new Fixture();
             Mocker = new AutoMocker();
         }
+
         [Fact]
         public void WhenGetTwoDifferentBooks()
         {
             //Arrange
             var subject = new PriceCalculatorService();
-            var books = new[] { 1, 2 };
+            var books = new[] {1, 2};
             //Act
             var result = subject.GetPrice(books);
             //Assert
@@ -35,11 +37,35 @@ namespace DahlBooks.Tests.Service
         {
             //Arrange
             var subject = new PriceCalculatorService();
-            var books = new[] { 1, 2, 3 };
+            var books = new[] {1, 2, 3};
             //Act
             var result = subject.GetPrice(books);
             //Assert
             result.Should().Be(21.6m);
+        }
+
+        [Fact]
+        public void WhenGetFourDifferentBooks()
+        {
+            //Arrange
+            var subject = new PriceCalculatorService();
+            var books = new[] {1, 2, 3, 4};
+            //Act
+            var result = subject.GetPrice(books);
+            //Assert
+            result.Should().Be(25.6m);
+        }
+
+        [Fact]
+        public void WhenGetFiveDifferentBooks()
+        {
+            //Arrange
+            var subject = new PriceCalculatorService();
+            var books = new[] {1, 2, 3, 4, 5};
+            //Act
+            var result = subject.GetPrice(books);
+            //Assert
+            result.Should().Be(30);
         }
     }
 }
