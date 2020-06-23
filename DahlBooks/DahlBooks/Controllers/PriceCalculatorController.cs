@@ -20,9 +20,9 @@ namespace DahlBooks.Controllers
             _priceCalculatorService = priceCalculatorService;
         }
         [HttpGet]
-        public decimal Get([FromBody] int[] books)
+        public decimal Get([FromBody] Books books)
         {
-            return _priceCalculatorService.GetPrice(books);
+            return _priceCalculatorService.GetPrice(books.Ids);
         }
     }
 }
