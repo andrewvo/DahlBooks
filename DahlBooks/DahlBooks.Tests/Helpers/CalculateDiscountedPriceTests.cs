@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 using AutoFixture;
 using DahlBooks.Helpers;
 using FluentAssertions;
@@ -28,6 +27,9 @@ namespace DahlBooks.Tests.Helpers
             var bookIdAndAmountOfOccurrances = new Dictionary<int, int>();
             bookIdAndAmountOfOccurrances.Add(1, 1);
             bookIdAndAmountOfOccurrances.Add(2, 1);
+            var expectedCombinations = new[] {2}.ToList();
+            Mocker.GetMock<IGetBookDiscountCombinations>().Setup(gbdc => gbdc.Get(bookIdAndAmountOfOccurrances))
+                .Returns(expectedCombinations);
             //Act
             var result = subject.Calculate(bookIdAndAmountOfOccurrances);
             //Assert
@@ -43,6 +45,9 @@ namespace DahlBooks.Tests.Helpers
             bookIdAndAmountOfOccurrances.Add(1, 1);
             bookIdAndAmountOfOccurrances.Add(2, 1);
             bookIdAndAmountOfOccurrances.Add(3, 1);
+            var expectedCombinations = new[] { 3 }.ToList();
+            Mocker.GetMock<IGetBookDiscountCombinations>().Setup(gbdc => gbdc.Get(bookIdAndAmountOfOccurrances))
+                .Returns(expectedCombinations);
             //Act
             var result = subject.Calculate(bookIdAndAmountOfOccurrances);
             //Assert
@@ -57,6 +62,9 @@ namespace DahlBooks.Tests.Helpers
             var bookIdAndAmountOfOccurrances = new Dictionary<int, int>();
             bookIdAndAmountOfOccurrances.Add(1, 2);
             bookIdAndAmountOfOccurrances.Add(2, 1);
+            var expectedCombinations = new[] { 2, 1 }.ToList();
+            Mocker.GetMock<IGetBookDiscountCombinations>().Setup(gbdc => gbdc.Get(bookIdAndAmountOfOccurrances))
+                .Returns(expectedCombinations);
             //Act
             var result = subject.Calculate(bookIdAndAmountOfOccurrances);
             //Assert
@@ -73,6 +81,9 @@ namespace DahlBooks.Tests.Helpers
             bookIdAndAmountOfOccurrances.Add(2, 1);
             bookIdAndAmountOfOccurrances.Add(3, 1);
             bookIdAndAmountOfOccurrances.Add(4, 1);
+            var expectedCombinations = new[] { 4 }.ToList();
+            Mocker.GetMock<IGetBookDiscountCombinations>().Setup(gbdc => gbdc.Get(bookIdAndAmountOfOccurrances))
+                .Returns(expectedCombinations);
             //Act
             var result = subject.Calculate(bookIdAndAmountOfOccurrances);
             //Assert
@@ -90,6 +101,9 @@ namespace DahlBooks.Tests.Helpers
             bookIdAndAmountOfOccurrances.Add(3, 1);
             bookIdAndAmountOfOccurrances.Add(4, 1);
             bookIdAndAmountOfOccurrances.Add(5, 1);
+            var expectedCombinations = new[] { 5 }.ToList();
+            Mocker.GetMock<IGetBookDiscountCombinations>().Setup(gbdc => gbdc.Get(bookIdAndAmountOfOccurrances))
+                .Returns(expectedCombinations);
             //Act
             var result = subject.Calculate(bookIdAndAmountOfOccurrances);
             //Assert
@@ -107,6 +121,9 @@ namespace DahlBooks.Tests.Helpers
             bookIdAndAmountOfOccurrances.Add(3, 2);
             bookIdAndAmountOfOccurrances.Add(4, 1);
             bookIdAndAmountOfOccurrances.Add(5, 1);
+            var expectedCombinations = new[] {4, 4}.ToList();
+            Mocker.GetMock<IGetBookDiscountCombinations>().Setup(gbdc => gbdc.Get(bookIdAndAmountOfOccurrances))
+                .Returns(expectedCombinations);
             //Act
             var result = subject.Calculate(bookIdAndAmountOfOccurrances);
             //Assert
