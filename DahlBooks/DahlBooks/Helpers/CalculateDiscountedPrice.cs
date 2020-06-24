@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using DahlBooks.Tests.Service;
+﻿using System.Collections.Generic;
 
 namespace DahlBooks.Helpers
 {
@@ -22,11 +19,11 @@ namespace DahlBooks.Helpers
                 { 5, 30m }
             };
         }
-        public decimal Calculate(Dictionary<int, int> IdsByOccurrance)
+        public decimal Calculate(Dictionary<int, int> IdsByOccurrence)
         {
             var totalPrice = 0.00m;
 
-            var bookGroupingCombinations = _getBookDiscountCombinations.Get(IdsByOccurrance);
+            var bookGroupingCombinations = _getBookDiscountCombinations.Get(IdsByOccurrence);
             foreach (var bookGroupingCombination in bookGroupingCombinations)
             {
                 totalPrice += _multibookDiscountedPrices[bookGroupingCombination];

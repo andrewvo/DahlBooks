@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using AutoFixture;
 using DahlBooks.Helpers;
 using DahlBooks.Service;
@@ -26,11 +24,11 @@ namespace DahlBooks.Tests.Service
         {
             //Arrange
             var subject = Mocker.CreateInstance<PriceCalculatorService>();
-            var numberOfOccurances = AutoFixture.Create<Dictionary<int,int>>();
+            var numberOfOccurences = AutoFixture.Create<Dictionary<int, int>>();
             var books = AutoFixture.Create<int[]>();
             var discountedPrice = AutoFixture.Create<decimal>();
-            Mocker.GetMock<IGroupNumbersByOccurrences>().Setup(gnbo => gnbo.Group(books)).Returns(numberOfOccurances);
-            Mocker.GetMock<ICalculateDiscountedPrice>().Setup(cdp => cdp.Calculate(numberOfOccurances))
+            Mocker.GetMock<IGroupNumbersByOccurrences>().Setup(gnbo => gnbo.Group(books)).Returns(numberOfOccurences);
+            Mocker.GetMock<ICalculateDiscountedPrice>().Setup(cdp => cdp.Calculate(numberOfOccurences))
                 .Returns(discountedPrice);
             //Act
             var result = subject.GetPrice(books);

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace DahlBooks.Tests.Service
+namespace DahlBooks.Helpers
 {
     public interface ICalculateDiscountedPrice
     {
-        decimal Calculate(Dictionary<int, int> IdsByOccurrance);
+        decimal Calculate(Dictionary<int, int> IdsByOccurrence);
     }
 }

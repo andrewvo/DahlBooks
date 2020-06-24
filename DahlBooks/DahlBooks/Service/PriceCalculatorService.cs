@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DahlBooks.Helpers;
-using DahlBooks.Tests.Service;
+﻿using DahlBooks.Helpers;
 
 namespace DahlBooks.Service
 {
@@ -10,7 +7,8 @@ namespace DahlBooks.Service
         private readonly IGroupNumbersByOccurrences _groupNumbersByOccurrences;
         private readonly ICalculateDiscountedPrice _calculateDiscountedPrice;
 
-        public PriceCalculatorService(IGroupNumbersByOccurrences groupNumbersByOccurrences, ICalculateDiscountedPrice calculateDiscountedPrice)
+        public PriceCalculatorService(IGroupNumbersByOccurrences groupNumbersByOccurrences,
+            ICalculateDiscountedPrice calculateDiscountedPrice)
         {
             _groupNumbersByOccurrences = groupNumbersByOccurrences;
             _calculateDiscountedPrice = calculateDiscountedPrice;

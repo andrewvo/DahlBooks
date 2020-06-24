@@ -10,7 +10,8 @@ namespace DahlBooks.Tests.Helpers
     public class GetBookDiscountCombinationsTests
     {
         public Fixture AutoFixture { get; set; }
-        public AutoMocker Mocker { get; set; }  
+        public AutoMocker Mocker { get; set; }
+
         public GetBookDiscountCombinationsTests()
         {
             AutoFixture = new Fixture();
@@ -28,7 +29,7 @@ namespace DahlBooks.Tests.Helpers
             //Act
             var result = subject.Get(bookIdAndAmountOfOccurrences);
             //Assert
-            result.Should().BeEquivalentTo(new []{2, 1});
+            result.Should().BeEquivalentTo(new[] {2, 1});
         }
 
         [Fact]
@@ -44,7 +45,7 @@ namespace DahlBooks.Tests.Helpers
             //Act
             var result = subject.Get(bookIdAndAmountOfOccurrences);
             //Assert
-            result.Should().BeEquivalentTo(new[] { 3, 3, 1 });
+            result.Should().BeEquivalentTo(new[] {3, 3, 1});
         }
 
         [Fact]
@@ -61,7 +62,7 @@ namespace DahlBooks.Tests.Helpers
             //Act
             var result = subject.Get(bookIdAndAmountOfOccurrences);
             //Assert
-            result.Should().BeEquivalentTo(new[] { 4, 4 });
+            result.Should().BeEquivalentTo(new[] {4, 4});
         }
     }
 }
